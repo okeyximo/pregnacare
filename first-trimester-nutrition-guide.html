@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First Trimester Nutrition Guide — Nigerian Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2D5A3D;
+    --forest-light: #3A7350;
+    --sage: #8DB48E;
+    --sage-soft: #C5DBC6;
+    --cream: #FDF8F0;
+    --peach: #F4C6A5;
+    --peach-deep: #E8A87C;
+    --warm-brown: #6B4226;
+    --text-dark: #2C2418;
+    --text-muted: #6B5D4F;
+    --gold: #D4A84B;
+    --gold-light: #F0DCA4;
+    --white: #FFFFFF;
+    --border: rgba(45, 90, 61, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @media print {
+    body { background: white !important; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .hero { min-height: auto !important; padding: 40px 20px !important; }
+    .card { break-inside: avoid; }
+    section { break-inside: avoid; }
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    background: linear-gradient(160deg, var(--forest) 0%, var(--forest-light) 50%, var(--sage) 100%);
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 600px; }
+
+  .hero-icon {
+    font-size: 52px;
+    margin-bottom: 16px;
+    display: block;
+    animation: gentle-bounce 3s ease-in-out infinite;
+  }
+
+  @keyframes gentle-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    color: var(--sage-soft);
+    font-size: 1.05rem;
+    font-weight: 400;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  .hero .badge {
+    display: inline-block;
+    margin-top: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 8px 20px;
+    border-radius: 30px;
+    color: var(--gold-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── Layout ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+
+  .section-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .divider {
+    width: 50px;
+    height: 3px;
+    background: var(--peach-deep);
+    border-radius: 3px;
+    margin: 12px auto 0;
+  }
+
+  /* ── Nutrient Cards ── */
+  .nutrient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+  }
+
+  .nutrient-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--border);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nutrient-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(45, 90, 61, 0.08);
+  }
+
+  .nutrient-card .icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+
+  .nutrient-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--forest);
+    margin-bottom: 6px;
+  }
+
+  .nutrient-card .why {
+    font-size: 0.82rem;
+    color: var(--peach-deep);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .nutrient-card .foods {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .icon-green { background: rgba(141, 180, 142, 0.2); }
+  .icon-peach { background: rgba(244, 198, 165, 0.35); }
+  .icon-gold  { background: rgba(212, 168, 75, 0.18); }
+
+  /* ── Menu Section ── */
+  .menu-section {
+    background: var(--white);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .day-header {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .day-header .day-emoji { font-size: 24px; }
+
+  .day-header h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .meals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .meal-slot {
+    background: var(--white);
+    padding: 18px 22px;
+  }
+
+  .meal-slot .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
+  }
+
+  .meal-slot:nth-child(1) .label { color: var(--peach-deep); }
+  .meal-slot:nth-child(2) .label { color: var(--forest-light); }
+  .meal-slot:nth-child(3) .label { color: var(--warm-brown); }
+  .meal-slot:nth-child(4) .label { color: var(--gold); }
+
+  .meal-slot .food {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+  }
+
+  /* ── Tips ── */
+  .tips-card {
+    background: linear-gradient(135deg, rgba(45,90,61,0.04) 0%, rgba(141,180,142,0.08) 100%);
+    border: 1px solid var(--sage-soft);
+    border-radius: 16px;
+    padding: 32px;
+  }
+
+  .tips-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--forest);
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+
+  .tip-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .tip-item:last-child { margin-bottom: 0; }
+
+  .tip-check {
+    width: 24px; height: 24px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .tip-item p {
+    font-size: 0.92rem;
+    color: var(--text-dark);
+  }
+
+  /* ── Disclaimer ── */
+  .disclaimer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    margin-top: 20px;
+  }
+
+  /* ── Print Button ── */
+  .print-bar {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+  }
+
+  .print-btn {
+    background: var(--forest);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(45, 90, 61, 0.3);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .print-btn:hover {
+    background: var(--forest-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(45, 90, 61, 0.35);
+  }
+
+  @media (max-width: 600px) {
+    .hero h1 { font-size: 1.9rem; }
+    .nutrient-grid { grid-template-columns: 1fr; }
+    .meals-grid { grid-template-columns: 1fr 1fr; }
+    .container { padding: 0 16px; }
+    .section-header h2 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-icon">🤰🏾</span>
+    <h1>First Trimester Nutrition Guide</h1>
+    <p>A curated Nigerian food guide for a healthy and nourished first trimester.</p>
+    <span class="badge">Weeks 1 – 12</span>
+  </div>
+</div>
+
+<!-- Nutrients -->
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2>Essential Nutrients</h2>
+      <p>Key vitamins and minerals your body needs, paired with local Nigerian foods.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="nutrient-grid">
+      <div class="nutrient-card">
+        <div class="icon icon-green">🥬</div>
+        <h3>Folic Acid</h3>
+        <div class="why">Prevents neural tube defects</div>
+        <div class="foods">Ugu (pumpkin leaves), efo tete, beans, plantain, green leafy vegetables</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-peach">🩸</div>
+        <h3>Iron</h3>
+        <div class="why">Supports blood volume</div>
+        <div class="foods">Dark leafy greens, liver, locust beans (iru/dawadawa), red meat, beans</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-gold">🦴</div>
+        <h3>Calcium</h3>
+        <div class="why">Bone & teeth formation</div>
+        <div class="foods">Crayfish, okra, ogbono seeds, sardines, nono (fermented milk)</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-green">☀️</div>
+        <h3>Vitamin D</h3>
+        <div class="why">Bone development & immunity</div>
+        <div class="foods">Sunlight, titus fish (mackerel), eggs, sardines</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-peach">🐟</div>
+        <h3>DHA / Omega-3</h3>
+        <div class="why">Brain & eye development</div>
+        <div class="foods">Titus fish, sardines, crayfish, stockfish</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-gold">🍌</div>
+        <h3>Vitamin B6</h3>
+        <div class="why">Eases morning sickness</div>
+        <div class="foods">Yam, sweet potatoes, chicken, groundnuts, bananas</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-green">🧂</div>
+        <h3>Iodine</h3>
+        <div class="why">Thyroid & brain support</div>
+        <div class="foods">Crayfish, prawns, iodized salt, eggs, seafood</div>
+      </div>
+
+      <div class="nutrient-card">
+        <div class="icon icon-peach">💪</div>
+        <h3>Zinc</h3>
+        <div class="why">Cell growth & immunity</div>
+        <div class="foods">Beef, chicken, egusi (pumpkin seeds), beans, groundnuts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Weekly Menu -->
+<section class="page-break">
+  <div class="container">
+    <div class="section-header">
+      <h2>Weekly Meal Plan</h2>
+      <p>Delicious, nutrient-packed Nigerian meals for every day of the week.</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Monday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">🌙</span>
+        <h3>Monday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Akamu (pap) with moi-moi</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Jollof rice with titus fish & plantain</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Efo riro with pounded yam</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Oranges & groundnuts</div></div>
+      </div>
+    </div>
+
+    <!-- Tuesday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">🌿</span>
+        <h3>Tuesday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Boiled yam with egg sauce</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Beans porridge with ripe plantain</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Egusi soup with semolina & stockfish</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Watermelon & tiger nuts</div></div>
+      </div>
+    </div>
+
+    <!-- Wednesday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">🌸</span>
+        <h3>Wednesday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Moi-moi with pap</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Fried rice with chicken & side salad</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Edikang ikong soup with fufu & assorted meat</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Pawpaw & roasted groundnuts</div></div>
+      </div>
+    </div>
+
+    <!-- Thursday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">🍃</span>
+        <h3>Thursday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Boiled sweet potato with fish stew</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Yam porridge (asaro) with spinach & titus fish</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Oha soup with pounded yam & beef</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Banana & boiled eggs</div></div>
+      </div>
+    </div>
+
+    <!-- Friday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">✨</span>
+        <h3>Friday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Akamu with akara (bean cakes)</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Rice & beans with stew & plantain</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Ogbono soup with semolina & crayfish</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Garden egg with groundnut paste</div></div>
+      </div>
+    </div>
+
+    <!-- Saturday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">🌻</span>
+        <h3>Saturday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Bread with scrambled eggs & sardines</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Coconut jollof rice with grilled chicken</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Fisherman pepper soup with yam</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Coconut water & chin-chin (small portion)</div></div>
+      </div>
+    </div>
+
+    <!-- Sunday -->
+    <div class="menu-section">
+      <div class="day-header">
+        <span class="day-emoji">🌞</span>
+        <h3>Sunday</h3>
+      </div>
+      <div class="meals-grid">
+        <div class="meal-slot"><div class="label">Breakfast</div><div class="food">Yam & pepper sauce with boiled egg</div></div>
+        <div class="meal-slot"><div class="label">Lunch</div><div class="food">Ofada rice with ayamase (designer stew)</div></div>
+        <div class="meal-slot"><div class="label">Dinner</div><div class="food">Vegetable soup (ugu & waterleaf) with amala & fish</div></div>
+        <div class="meal-slot"><div class="label">Snack</div><div class="food">Fruit salad (watermelon, orange, pawpaw, banana)</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tips -->
+<section>
+  <div class="container">
+    <div class="tips-card">
+      <h3>💡 Quick Tips for the First Trimester</h3>
+      <div class="tip-item">
+        <div class="tip-check">✓</div>
+        <p>Drink <strong>ginger tea</strong> to help manage morning sickness and nausea.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-check">✓</div>
+        <p>Eat <strong>small, frequent meals</strong> every 2–3 hours instead of three large ones.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-check">✓</div>
+        <p>Stay hydrated with <strong>water, coconut water</strong>, or zobo (in moderation).</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-check">✓</div>
+        <p><strong>Akamu/pap</strong> is your best friend on tough nausea days — gentle and easy to digest.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-check">✓</div>
+        <p>Include at least <strong>one leafy green vegetable</strong> in your meals every day.</p>
+      </div>
+      <div class="tip-item">
+        <div class="tip-check">✓</div>
+        <p>Take your <strong>prenatal vitamins</strong> alongside meals for better absorption.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer">
+  This guide is for informational purposes only. Always consult your doctor or healthcare provider for personalized advice during pregnancy.
+</div>
+
+<!-- Print Button -->
+<div class="print-bar no-print">
+  <button class="print-btn" onclick="window.print()">
+    🖨️ Print / Save as PDF
+  </button>
+</div>
+
+</body>
+</html>
